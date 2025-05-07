@@ -34,6 +34,12 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://34.205.139.5:27017/FikraMarket';
 
 mongoose.connect(MONGODB_URI, {
+    auth: {
+      username: process.env.MONGO_USER,
+      password: process.env.MONGO_PASS
+    },
+    authSource: 'admin' 
+  },{
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 5000,
