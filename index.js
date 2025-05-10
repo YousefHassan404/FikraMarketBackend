@@ -31,9 +31,15 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 // MongoDB connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://admin:admin123@localhost:27017/FikraMarket';
+const MONGODB_URI = 'mongodb://18.234.166.80:27017/FikraMarket';
 
 mongoose.connect(MONGODB_URI, {
+    auth: {
+      username: process.env.MONGO_USER,
+      password: process.env.MONGO_PASS
+    },
+    authSource: 'admin' 
+  },{
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 5000,
@@ -44,6 +50,8 @@ mongoose.connect(MONGODB_URI, {
   console.error('❌ MongoDB connection error:', err);
   process.exit(1);
 });
+
+
 
 // Connection events
 mongoose.connection.on('connected', () => {
