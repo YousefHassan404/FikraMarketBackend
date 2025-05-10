@@ -31,7 +31,7 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 // MongoDB connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://18.234.166.80:27017/FikraMarket';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://admin:admin123@18.234.166.80:27017/FikraMarket';
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
