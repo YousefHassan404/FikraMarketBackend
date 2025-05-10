@@ -91,12 +91,4 @@ router.post('/register', validateUser, async (req, res) => {
   }
 });
 
-router.post('/register', async (req, res) =>{
-  res.json({
-    message: 'Welcome to Fikra Market API',
-    version: '1.0.0',
-    documentation: '/api-docs' // Consider adding Swagger docs later
-  });
-}
-
 module.exports = router;
