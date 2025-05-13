@@ -31,7 +31,7 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 // MongoDB connection
-const MONGODB_URI = 'mongodb://3.95.61.171:27017/FikraMarket';
+const MONGODB_URI = 'mongodb://54.242.236.2:27017/FikraMarket';
 
 mongoose.connect(MONGODB_URI, {
     auth: {
